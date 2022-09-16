@@ -24,6 +24,11 @@ abstract class AbstractController
             return $stmt;
         }
 
+    private function classToTable(string $class): string {
+        $tmp = explode('\\', $class);
+        return strtolower(end($tmp));
+    }
+
     protected function readOne(string $class, int $id) {
         $query = "SELECT * FROM " . $this->classToTable($class) . " WHERE id = :id";
         $stmt = $this->executeQuery($query, [ 'id' => $id ]);
