@@ -1,8 +1,8 @@
 <?php
 const DB_INFOS = [
-    'host'     => 'localhost:8888',
+    'host'     => '127.0.0.1',
     'port'     => '8889',
-    'dbname'   => '',
+    'dbname'   => 'micro_framework',
     'username' => 'root',
-    'password' => ''
+    'password' => 'root'
 ];

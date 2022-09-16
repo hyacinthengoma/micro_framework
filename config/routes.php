@@ -5,8 +5,9 @@ const ROUTES = [
         'controller' => App\Controller\MainController::class,
         'method' => 'home'
     ],
+
     'test' => [
-        'controller' => App\Controller\MainController::class,
+        'controller' => App\Controller\OfferController::class,
         'method' => 'test'
     ],
     'privacy' => [

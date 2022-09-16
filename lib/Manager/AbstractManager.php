@@ -1,8 +1,10 @@
 <?php
 namespace Plugo\Manager;
-require dirname(_DIR_,2). '/config/database.php';
+use PDO;
 
-abstract class AbstractController
+require dirname(__DIR__,2). '/config/database.php';
+
+abstract class AbstractManager
 {
 
     private function connect(): \PDO
@@ -34,5 +36,13 @@ abstract class AbstractController
         $stmt = $this->executeQuery($query, [ 'id' => $id ]);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
         return $stmt->fetch();
+    }
+
+    protected function readMany(string $class) {
+        $query = "SELECT * FROM " . $this->classToTable($class);
+        if ($stmt = $this->executeQuery($query)) {
+            $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
+            return $stmt->fetchAll();
+        }
     }
 }

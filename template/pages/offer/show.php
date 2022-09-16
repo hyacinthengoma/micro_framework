@@ -1,0 +1,1 @@
+<h1><?= $data['offer']->getTitle()?></h1>
